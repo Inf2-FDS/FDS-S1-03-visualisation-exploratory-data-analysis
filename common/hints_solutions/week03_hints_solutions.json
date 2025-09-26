@@ -1,0 +1,103 @@
+{
+    "1": {
+        "typeCode": true,
+        "solution": "###week03_ex1",
+        "hints": {
+            "hint 1": "Remember we can load .csv files with `pd.read_csv`",
+            "hint 2": "The file path is `datasets/co2_emissions.csv`"
+        }
+    },
+    "2": {
+        "typeCode": true,
+        "solution": "###week03_ex2",
+        "hints": {
+            "hint 1": "Use the `kind = 'line'` argument"
+        }
+    },
+    "2.1": {
+        "typeCode": false,
+        "solution": "###week03_ex2.1",
+        "hints": {
+        }
+    },
+    "2.2": {
+        "typeCode": false,
+        "solution": "###week03_ex2.2",
+        "hints": {
+             "hint 1": "(a) Think about the distribution of age in the general population.\n\n(b) Recall the definitions of positive and negative skew from the lectures and lecture notes.",
+            "hint 2": "(b) Do you think the mean is above the median in this distribution?"
+        }
+    },
+    "3": {
+        "typeCode": true,
+        "solution": "###week03_ex3",
+        "hints": {
+            "hint 1": "To plot a histogram we can use `sns.displot()`",
+            "hint 2": "To map BMI to the x-axis we can pass `x = 'BMI'` as an argument to `sns.displot()`",
+            "hint 3": "To map the outcome to hue, we can pass `hue = 'Outcome'` as an argument to `sns.displot()`"
+        }
+    },
+    "3.1": {
+        "typeCode": false,
+        "solution": "###week03_ex3.1",
+        "hints": {
+        }
+    },
+    "4": {
+        "typeCode": true,
+        "solution": "###week03_ex4",
+        "hints": {
+            "hint 1": "We can filter the dataframe for only patients with diabetes using `diabetes[diabetes['Outcome'] == 1]`",
+            "hint 2": "Recall the `.describe()` method"
+        }
+    },
+    "5": {
+        "typeCode": true,
+        "solution": "###week03_ex5",
+        "hints": {
+            "hint 1": "To plot a boxplot, you can use `sns.catplot(kind = 'box', ...)`",
+            "hint 2": "To map pregnancies to the x-axis we can pass `x = 'Pregnancies'` as an argument to `sns.catplot()`",
+            "hint 3": "To map BMI to the y-axis we can pass `y = 'BMI'` as an argument to `sns.catplot()`",
+            "hint 4": "To map the outcome to hue, we can pass `hue = 'Outcome'` as an argument to `sns.catplot()`"
+        }
+    },
+    "5.1": {
+        "typeCode": false,
+        "solution": "###week03_ex5.1",
+        "hints": {
+        }
+    },
+
+    "5.2": {
+        "typeCode": false,
+        "solution": "###week03_ex5.2",
+        "hints": {
+            "hint 1": "Think about how many peaks might exist in a distribution."
+        }
+    },
+        "5.3": {
+        "typeCode": false,
+        "solution": "###week03_ex5.3",
+        "hints": {
+        }
+    },
+
+    "6": {
+        "typeCode": true,
+        "solution": "###week03_ex6",
+        "hints": {
+            "hint 1": "The file path is `datasets/co2_emissions_vs_gdp.csv` and we can load the dataset using `pd.read_csv()`",
+            "hint 2": "We want to visualise the relationship between several variables, none of which are categorical. Which type of Seaborn visualisation should we use?",
+            "hint 3": "The size of markers is one way to portray population size"
+        }
+    },
+    "7": {
+        "typeCode": true,
+        "solution": "###week03_ex7",
+        "hints": {
+            "hint 1": "Recall that we can merge two datasets using `pd.merge()`",
+            "hint 2": "We can specify which columns to merge on in each dataset with the `left_on =` and `right_on =` arguments to `pd.merge()`",
+            "hint 3": "The colour of markers is one way to represent different continents"
+        }
+    }
+}

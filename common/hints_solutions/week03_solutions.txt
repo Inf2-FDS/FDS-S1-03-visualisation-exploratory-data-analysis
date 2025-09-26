@@ -1,0 +1,110 @@
+###week03_ex1
+co2_emissions = pd.read_csv("datasets/co2_emissions.csv")
+co2_emissions.head()
+###week03_ex1_end
+
+###week03_ex2
+sns.relplot(
+    data = co2_emissions,
+    x = "year",
+    y = "annual_co2_tonnes",
+    hue = "region",
+    kind = "line" 
+)
+###week03_ex2_end
+
+###week03_ex2.1
+Cluttered plots with multiple lines are difficult to read but make comparing two different time courses easier.
+
+There are 10 colours in the combined plot; although advice varies, 8 seems to be the practical maximum number of colours that people with colour vision deficiency can disambiguate.
+
+It's more challenging to fit in axes with the facetted plot.
+
+There are always compromises involved in visualisation!
+###week03_ex2.1_end
+
+###week03_ex2.2
+(a) Age is always positive, so the distribution is cut off at zero. People can die at any age (and they only die once!), so it makes sense that there are fewer older people than younger people. However, it's still a puzzle as to why there are more women in their 20s in the dataset.
+
+(b) The distribution has positive skew, because, on visual inspection, the mean is greater than the median. If you're not convinced, test it in code!
+###week03_ex2.2_end
+
+###week03_ex3
+sns.displot(
+    data = diabetes,
+    x = "BMI",
+    hue = "Outcome"
+)
+###week03_ex3_end
+
+###week03_ex3.1
+These are clearly anomalous data points as a BMI of 0 indicates a weight of 0, which is not possible. These data points should be treated with care during analysis.
+###week03_ex3.1_end
+
+###week03_ex4
+# You could also do this manually using .mean(), .std(), .quantile(0.25) etc.
+print("With diabetes:")
+print(diabetes["BMI"][diabetes["Outcome"] == 1].describe())
+print("\nWithout diabetes:")
+print(diabetes["BMI"][diabetes["Outcome"] == 0].describe())
+###week03_ex4_end
+
+###week03_ex5
+sns.catplot(
+    data = diabetes,
+    kind = "box",
+    x = "Pregnancies",
+    y = "BMI",
+    hue = "Outcome"
+)
+###week03_ex5_end
+
+###week03_ex5.1
+Roughly speaking, the relationship between BMI and diabetes seems to hold regardless of the number of pregnancies, though the relationship looks stronger for low and high numbers of pregnancies. However, we should be wary of how many individuals are represented in each group - there are probably not many women in the dataset with higher number of pregnancies.
+###week03_ex5.1_end
+
+###week03_ex5.2
+The detail of a bimodal distribution (i.e. with two peaks) will be lost in a boxplot. Other plot types, such as [violin plots](https://seaborn.pydata.org/generated/seaborn.violinplot.html), can show this sort of detail.
+###week03_ex5.2_end
+
+###week03_ex5.3
+We can see from the density plot for BMI that women with a lower level of BMI are less likely to have diabetes than women with a higher BMI. The same applies for pregnancies.
+
+We can see that insulin, skin thickness, and glucose are associated with diabetes from the relevant scatter plots.
+
+Skin thickness and BMI appear to be correlated from the BMI-skin thickness scatter plot.
+
+Age and pregnancies appear to be correlated, as might be expected - older women have had more time to have pregnancies.
+
+The BMI-pregnancy scatter plot lends support to the idea that for women with low numbers of pregnancies, there is an association between BMI and diabetes. However for high number of pregnancies, there are very few individuals - differences in the mean and median BMI might be arising from chance, due to the small number of individuals.
+###week03_ex5.3_end
+
+
+###week03_ex6
+co2_vs_gdp = pd.read_csv("datasets/co2_emissions_vs_gdp.csv")
+
+sns.relplot(
+    co2_vs_gdp,
+    x = "CO₂ emissions per capita (tonnes per capita)",
+    y = "GDP per capita (international-$ (in 2011 prices))",
+    size = "Total population (Gapminder)",
+    sizes = (10,250) # Set the maximum and minimum size of a marker
+)
+###week03_ex6_end
+
+###week03_ex7
+
+drinks = pd.read_csv("datasets/drinks_by_country.csv")
+
+co2_vs_gdp_continent = pd.merge(co2_vs_gdp, drinks, left_on = "Entity", right_on = "Country")
+
+sns.relplot(
+    co2_vs_gdp_continent,
+    x = "CO₂ emissions per capita (tonnes per capita)",
+    y = "GDP per capita (international-$ (in 2011 prices))",
+    size = "Total population (Gapminder)",
+    sizes = (5,300),
+    hue = "Continent"
+)
+###week03_ex7_end
+
